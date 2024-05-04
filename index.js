@@ -4105,6 +4105,7 @@ client.on('messageCreate', async message => {
 
 
 
+
 const name = 'Makaros';
 const logo = 'https://cdn.discordapp.com/attachments/1219990888487321661/1220249009700995082/logoPng.png?ex=66371ef3&is=6635cd73&hm=02d8d9bc8d731f9ec22dddc3d0efaba30d580dd638aa819244693b88de6adb5f&'
 const reviewChannel = '1236329895139741848'
@@ -4114,7 +4115,7 @@ client.on('messageCreate', async message => {
   const command = args.shift().toLowerCase();
   if(message.content === '!review') {
         const embed = new EmbedBuilder()
-        .setAuthor(name, logo)
+        .setAuthor({ name: name, iconURL: logo })
         .setThumbnail(logo)
         .setColor('#13e3ee')
         .setDescription(`**Μέτα απο μια αγορά αφήστε μας το review σας πατώντας το button**`)
@@ -4129,7 +4130,7 @@ client.on('messageCreate', async message => {
 
 client.on('interactionCreate', async interaction => {
     if (interaction.customId === 'reviewMakaros') {
-        const modal = new Modal()
+        const modal = new EmbedBuilder()
         .setCustomId('reviewModalMakaros')
         .setTitle(`Review System | ${interaction.guild.name}`)
 
