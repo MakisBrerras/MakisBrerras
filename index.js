@@ -4996,7 +4996,7 @@ client.on('ready', async () => {
                         .setColor("#40f58e")
                         .setTimestamp(Date.now());
     
-                    await message.edit({ components: [btn]});
+                    await message.edit({ components: [btn], embeds: [g] });
                     await message.channel.send({ content: `**Συγχαρητήρια ${winners.map(winner => `<@${winner.id}>`).join(', ')}, κέρδισες το ${giveaway.Prize}**` });
     
                     await giveaway.update({ Running: 'no' });
